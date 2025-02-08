@@ -534,7 +534,7 @@ public class FormTest {
         $("[class='button__text']").click();
 
         $("[data-test-id='name'].input_invalid .input__sub").shouldBe(visible, ofSeconds(15));
-        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText("Имя и Фамилия указаны неверно. Допустимы только русские буквы, пробелы и дефисы."));
+        $("[data-test-id='name'].input_invalid .input__sub").shouldHave(exactText("Имя и Фамилия указаны неверно. Имя и Фамилия указаны неверно. Недопустимо успользование только символа."));
     }
 
     @Test
@@ -566,7 +566,7 @@ public class FormTest {
         String formattedDate = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(formattedDate);
 
-        $("[data-test-id=name] input").setValue("-Лея");
+        $("[data-test-id=name] input").setValue("Лея-");
 
         $("[data-test-id=phone] input").setValue("+79111111111");
 
