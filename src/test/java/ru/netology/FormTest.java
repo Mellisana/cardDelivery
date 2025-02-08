@@ -566,7 +566,7 @@ public class FormTest {
         String formattedDate = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id=date] input").setValue(formattedDate);
 
-        $("[data-test-id=name] input").setValue("-Лея");
+        $("[data-test-id=name] input").setValue("Лея-");
 
         $("[data-test-id=phone] input").setValue("+79111111111");
 
