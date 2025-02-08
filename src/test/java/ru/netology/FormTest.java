@@ -728,8 +728,8 @@ public class FormTest {
 
         $("[class='button__text']").click();
 
-        $(".notification__title").shouldBe(visible, ofSeconds(15));
-        $(".notification__title").shouldHave(text("Успешно!"));
-        $(".notification__content").shouldHave(text("Встреча успешно забронирована на " + formattedDate));
+       String text = driver.findElement(By.cssSelector("[data-test-id=agreement].input_invalid .checkbox__text")).getText();
+        assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных" +
+                " и разрешаю сделать запрос в бюро кредитных историй", text.trim());
     }
 }
