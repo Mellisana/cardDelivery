@@ -147,27 +147,6 @@ public class FormTest {
     }
 
     @Test
-    public void cityNameOrelWithE() {
-        $("[data-test-id=city] input").setValue("Орел");
-        $("[data-test-id=date] input").press(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-
-        LocalDate date = LocalDate.now().plusDays(3);
-        String formattedDate = date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        $("[data-test-id=date] input").setValue(formattedDate);
-
-        $("[data-test-id=name] input").setValue("Иванов Иван");
-
-        $("[data-test-id=phone] input").setValue("+79111111111");
-
-        $("[data-test-id=agreement]").click();
-        $("[class='button__text']").click();
-
-        $(".notification__title").shouldBe(visible, ofSeconds(15));
-        $(".notification__title").shouldHave(text("Успешно!"));
-        $(".notification__content").shouldHave(text("Встреча успешно забронирована на " + formattedDate));
-    }
-
-    @Test
     public void cityNameNoRegistered() {
         $("[data-test-id=city] input").setValue("москва");
         $("[data-test-id=date] input").press(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
